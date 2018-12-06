@@ -1,71 +1,97 @@
-
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col-span">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="container"> 
-  <div class="jumbotron">
-
-    <button ng-click="count = count + 1">Add another</button>
-
-  </div>
-</div>
-<br> 
+<nav class="navbar navbar-grey bg-grey justify-content-between">
+  <a class="navbar-brand">Jake's Library</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
 
 <table class="table table-hover">
   <thead class="thead-light">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Author Name</th>
+      <th scope="col">ISBN Code</th>
+      <th scope="col"># of Available Books</th>
+      <th scope="col">Publishing Date</th>
+      <th scope="col">Category</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Count of Monte Cristo</td>
+      <td>alexander Dumas</td>
+      <td>@12334567</td>
+      <td>5</td>
+      <td>1/1/1991</td>
+      <td>Fiction</td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <th scope="row">1</th>
+      <td>Monte Cristo in the Count</td>
+      <td>dumas Alex</td>
+      <td>@23345678</td>
+      <td>2</td>
+      <td>1/1/1991</td>
+      <td>History</td>
     </tr>
     <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+      <th scope="row">1</th>
+      <td>Cristo of the Monte</td>
+      <td>dumas Someone</td>
+      <td>@3456789</td>
+      <td>9</td>
+      <td>1/1/1991</td>
+      <td>Romance</td>
     </tr>
+
   </tbody>
 </table>
+
+<div class="container">
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-grey btn-sm btn-block">Add</button>
+  </div>
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-success btn-sm btn-block">Edit</button>
+  </div>
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-dark btn-sm btn-block">Delete</button>
+  </div>
+  </div>
+
+  <div class="table-responsive">
+
+    <div class="container users">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+        <h3>List of Users</h3>
+        </div>
+      </div>
+    </div> 
+
+   <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Total Amount</th>
+      <th scope="col">Dates</th>
+      <th scope="col">Category</th>
+
+        </tr>
+      </thead>
+    <tbody>
+      <tr *ngFor="let list of listOfUsers">
+          <td>{{list.id}}</td>
+          <td>{{list.name}}</td>
+          <td>{{author}}</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+      </tr>
+    </tbody>
+   </table>
+</div>
