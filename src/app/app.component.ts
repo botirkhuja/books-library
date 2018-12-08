@@ -11,6 +11,6 @@ export class AppComponent {
   title = 'books-library';
 
   constructor (private bookListService: BookListService){
-this.title = this.bookListService.bookMethod();
+      this.title = this.bookListService.bookMethod();
   }
 }

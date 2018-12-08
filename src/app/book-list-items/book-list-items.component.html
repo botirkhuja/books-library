@@ -20,32 +20,14 @@
   </thead>
   <tbody>
         
-    <tr *ngFor="let list of listOfUsers">
-      <th scope="row">1</th>
-      <td>Count of Monte Cristo</td>
-      <td>Alexander Dumas</td>
-      <td>@12334567</td>
-      <td>5</td>
-      <td>1/1/1991</td>
-      <td>Fiction</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Monte Cristo in the Count</td>
-      <td>Dumas Alex</td>
-      <td>@23345678</td>
-      <td>2</td>
-      <td>1/1/1991</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Cristo of the Monte</td>
-      <td>Dumas Someone</td>
-      <td>@3456789</td>
-      <td>9</td>
-      <td>1/1/1991</td>
-      <td>Romance</td>
+    <tr *ngFor="let list of listOfBooks"  (click)="selectlistOfBooks($event, Books);" [class.selected]="Books.flag === true">
+      <th scope="row">{{Books.id}}</th>
+      <td>{{Books.bookName}}</td>
+      <td>{{Books.authorName}}</td>
+      <td>{{Books.isbnCode}}</td>
+      <td>{{Books.availableBooks</td>
+      <td>{{Books.publishingDate}}</td>
+      <td>{{Books.category}}</td>
     </tr>
   </tbody>
 </table>
@@ -63,6 +45,8 @@
     </div>
 </div>
   </div>
+
+  <!--
   <br>
   <hr class="one">
 <br>
@@ -118,6 +102,7 @@
     </div>
     </div>
 </div>
+-->
 
 <div class="footer">
 

@@ -7,7 +7,7 @@ import { BookListService } from '../book-list.service';
   styleUrls: ['./book-list-items.component.scss']
 })
 export class BookListItemsComponent implements OnInit {
-title: string;
+  title: string;
 
   public listOfUsers = [
      {
@@ -39,9 +39,48 @@ title: string;
       }
  ]
 
-  public selectlistOfUsers(event: any, list: any) {
-     list.flag = !list.flag;
+ public selectlistOfUsers(event: any, list: any) {
+  list.flag = !list.flag;
+}
+
+ 
+ public listOfBooks = [
+   {
+  id: 1,
+  bookName:'Count of Monte Cristo',
+  authorName: 'Alexander Dumas',
+  isbnCode:'@12334567',
+  availableBooks:'5',
+  publishingDate:'1/1/1991',
+  category: 'Fiction',
+  flag: false,
+   }, 
+   {
+  id: 2,
+  bookName:'Monte Cristo in the Count',
+  authorName: 'Dumas Alex',
+  isbnCode:'@23345678',
+  availableBooks:'3',
+  publishingDate:'1/2/1991',
+  category: 'History',
+  flag: false,
+   },
+   {
+  id: 3,
+  bookName:'Cristo of the Monte',
+  authorName: 'Dumas Someone',
+  isbnCode:'@3456789',
+  availableBooks:'1',
+  publishingDate:'12/1/1991',
+  category: 'Romance',
+  flag: false,
+   }
+]
+
+  public selectlistOfBooks(event: any, Books: any) {
+     Books.flag = !Books.flag;
   }
+  
   constructor(private bookListService: BookListService) {
     this.title = this.bookListService.bookMethod();
    }
