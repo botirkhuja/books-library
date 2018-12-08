@@ -43,8 +43,10 @@ export class BookListItemsComponent implements OnInit {
   list.flag = !list.flag;
 }
 
+public selectedRow: Number;
+public setClickedRow: Function;
  
- public listOfBooks = [
+ public bookList = [
    {
   id: 1,
   bookName:'Count of Monte Cristo',
@@ -76,17 +78,18 @@ export class BookListItemsComponent implements OnInit {
   flag: false,
    }
 ]
-
-  public selectlistOfBooks(event: any, Books: any) {
-     Books.flag = !Books.flag;
-  }
+    
+ // public selectbookList(event: any, book: any) {
+  //   book.flag = !book.flag;
+ // }
   
-  constructor(private bookListService: BookListService) {
-    this.title = this.bookListService.bookMethod();
+  constructor() {
+    
+    this.setClickedRow = function(index){
+      this.selectedRow = index;
    }
-
-  ngOnInit() {
-
   }
-
+  ngOnInit(){
+    
+  }
 }

@@ -1,8 +1,10 @@
 <nav class="navbar navbar-grey bg-grey justify-content-between">
   <a class="navbar-brand">Jake's Library</a>
+
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <p><a [routerLink]="['/login']">Logout</a></p>
   </form>
 </nav>
 
@@ -20,15 +22,20 @@
   </thead>
   <tbody>
         
-    <tr *ngFor="let list of listOfBooks"  (click)="selectlistOfBooks($event, Books);" [class.selected]="Books.flag === true">
-      <th scope="row">{{Books.id}}</th>
-      <td>{{Books.bookName}}</td>
-      <td>{{Books.authorName}}</td>
-      <td>{{Books.isbnCode}}</td>
-      <td>{{Books.availableBooks</td>
-      <td>{{Books.publishingDate}}</td>
-      <td>{{Books.category}}</td>
+    <tr *ngFor="let book of bookList, let i = index"  (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+      <th scope="row">{{book.id}}</th>
+      <td>{{book.bookName}}</td>
+      <td>{{book.authorName}}</td>
+      <td>{{book.isbnCode}}</td>
+      <td>{{book.availableBooks}}</td>
+      <td>{{book.publishingDate}}</td>
+      <td>{{book.category}}</td>
     </tr>
+
+    <div class="well well-lg">
+      Selected Row : <strong>{{selectedRow}}</strong>
+  </div>
+
   </tbody>
 </table>
 
@@ -38,7 +45,8 @@
       <button type="button" class="btn btn-grey btn-md">Add</button>
     </div>
     <div class="col-md-4 editButton">
-      <button type="button" class="btn btn-success btn-md">Edit</button>
+      <button type="button" class="btn btn-success btn-md" [routerLink]="routingEdit"
+      routerLinkActive="active">Edit</button>
     </div>
     <div class="col-md-4 deleteButton">
       <button type="button" class="btn btn-dark btn-md">Delete</button>
@@ -103,6 +111,8 @@
     </div>
 </div>
 -->
+
+<!--<router-outlet></router-outlet>-->
 
 <div class="footer">
 
