@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookListService } from '../book-list.service';
 
 @Component({
   selector: 'app-book-list-items',
@@ -6,38 +7,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-list-items.component.scss']
 })
 export class BookListItemsComponent implements OnInit {
+title: string;
 
   public listOfUsers = [
      {
     id: 1,
-    name:'One',
-    author: 'One to One',
-    totalAmount:5,
+    name:'Kyle Likelyhood',
+    author: 'Dumas Alex',
+    totalAmount:1,
     dates:'Tue Nov 13 2018 16:33:06 GMT-0600 (Eastern Time)',
-    category: 'math',
-    
+    category: 'History',
+    flag: false,
      }, 
      {
     id: 2,
-    name:'Two',
-    author: 'Someone',
-    totalAmount:5,
+    name:'Jacob Levinsky',
+    author: 'Alexander Dumas',
+    totalAmount:2,
     dates:'Tue Nov 13 2018 16:33:06 GMT-0600 (Eastern Time)',
-    category: 'romance',
+    category: 'Fiction',
+    flag: false,
      },
      {
     id: 3,
-    name:'Three',
-    author: 'Anyone',
-    totalAmount:5,
+    name:'Miranda Kerr',
+    author: 'Dumas Someone',
+    totalAmount:1,
     dates:'Tue Nov 13 2018 16:33:06 GMT-0600 (Eastern Time)',
-    category: 'history',
+    category: 'Romance',
+    flag: false,
       }
  ]
 
-  constructor() { }
+  public selectlistOfUsers(event: any, list: any) {
+     list.flag = !list.flag;
+  }
+  constructor(private bookListService: BookListService) {
+    this.title = this.bookListService.bookMethod();
+   }
 
   ngOnInit() {
+
   }
 
 }
