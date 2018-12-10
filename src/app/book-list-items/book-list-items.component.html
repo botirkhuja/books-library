@@ -21,8 +21,12 @@
     </tr>
   </thead>
   <tbody>
-        
-    <tr *ngFor="let book of bookList, let i = index"  (click)="setClickedRow(i)" [class.active]="i == selectedRow">
+
+    <tr
+      *ngFor="let book of bookList, let i = index"
+      (click)="setClickedRow(book.id)"
+      [class.active]="book.id === selectedRow"
+    >
       <th scope="row">{{book.id}}</th>
       <td>{{book.bookName}}</td>
       <td>{{book.authorName}}</td>
@@ -45,7 +49,7 @@
       <button type="button" class="btn btn-grey btn-md">Add</button>
     </div>
     <div class="col-md-4 editButton">
-      <button type="button" class="btn btn-success btn-md" 
+      <button type="button" class="btn btn-success btn-md"
      [routerLink]="editPage"
      routerLinkActive="active"
       >Edit</button>
@@ -75,7 +79,7 @@
         <h3>List of Users</h3>
         </div>
       </div>
-    </div> 
+    </div>
 
    <table class="table table-hover">
       <thead class="thead-dark">
@@ -119,5 +123,5 @@
 <div class="footer">
 
 
-  
+
 </div>

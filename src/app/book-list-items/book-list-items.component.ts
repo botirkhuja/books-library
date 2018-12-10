@@ -11,7 +11,7 @@ import { EditServiceService } from '../edit-service.service';
 export class BookListItemsComponent implements OnInit {
   title: string;
   //routingEdit: Array<string|number>;
-  
+
 
   public listOfUsers = [
      {
@@ -22,7 +22,7 @@ export class BookListItemsComponent implements OnInit {
     dates:'Tue Nov 13 2018 16:33:06 GMT-0600 (Eastern Time)',
     category: 'History',
     flag: false,
-     }, 
+     },
      {
     id: 2,
     name:'Jacob Levinsky',
@@ -43,13 +43,9 @@ export class BookListItemsComponent implements OnInit {
       }
  ]
 
- public selectlistOfUsers(event: any, list: any) {
-  list.flag = !list.flag;
-}
+public selectedRow: number;
 
-public selectedRow: Number;
 
- 
  public bookList = [
    {
   id: 1,
@@ -60,7 +56,7 @@ public selectedRow: Number;
   publishingDate:'1/1/1991',
   category: 'Fiction',
   flag: false,
-   }, 
+   },
    {
   id: 2,
   bookName:'Monte Cristo in the Count',
@@ -82,31 +78,35 @@ public selectedRow: Number;
   flag: false,
    }
 ]
-    
+
  // public selectbookList(event: any, book: any) {
   //   book.flag = !book.flag;
  // }
-  
+
   constructor(
   private router:Router,
   private activatedRoute: ActivatedRoute,
   private editService:EditServiceService,
-   
+
   ) {
-    
+
   }
 
   ngOnInit(){
-    
+
+  }
+
+  selectlistOfUsers(event: any, list: any) {
+    list.flag = !list.flag;
   }
 
 
-setClickedRow (index) { 
-  this.selectedRow = index;
-  //this.routerService.navigateByUrl('/')
-}
+  setClickedRow (index) {
+    this.selectedRow = index;
+    this.router.navigate(['library', index]);
+  }
 
-public libraryNavigation ( id) {
+ libraryNavigation (id) {
     this.router.navigateByUrl(id).then(e => {
       if (e) {
         console.log("Navigation is successful!");
